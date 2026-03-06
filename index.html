@@ -3,8 +3,8 @@
     <title>Proyecto3</title>
     
 </head>
-<body onload="cuentaRegresiva">
-    <h1 align="center">Juego de Preguntas de Messi</H1><br>
+<body onload="tictac">
+    <h1 align="center" id="tituloDelJuego">Juego de Preguntas de Messi</H1><br>
         <p>Pregunta 1 Cuantos balones de oro tiene Messi?</p>
         
         <input type="number" id="preguntaNumeroUno">
@@ -34,17 +34,29 @@
         <input type="number" id="preguntaNumeroCinco">
         
         <button>Comprobar</button>
+
+       <h2 align="center">Cuenta Regresiva</h2> 
+
+        <h1 id="tiempoContando" align="center">30</h2>
     
     
     <script>
+        let elementoCuentaRegresiva = document.getElementById("tiempoContando");
+        let gameOver = document.getElementById("tituloDelJuego"); 
         function comenzarTiempo(){
-            setTimeout(contarTiempo,1000*10);
+            setTimeout(tiempoAcabado,1000*10);
 
         }
-        function detenerTiempo(){
-            
+        function tiempoAcabado(){
+            gameOver = "Game Over"
         }
         function cuentaRegresiva(){
+            setInterval(tictac,1000);
+
+        }
+        function tictac(){
+            let contador = elementoCuentaRegresiva - 1;
+
 
         }
        
