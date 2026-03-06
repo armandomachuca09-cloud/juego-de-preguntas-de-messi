@@ -3,45 +3,45 @@
     <title>Proyecto3</title>
     
 </head>
-<body onload="cuentaRegresiva">
-    <h1 align="center" id="tituloDelJuego">Juego de Preguntas de Messi</H1><br>
-        <p>Pregunta 1 Cuantos balones de oro tiene Messi?</p>
+<body onload="comenzarTiempo()">
+    <h1 align="center">Juego de Preguntas de Messi</H1><br>
+    <p>Pregunta 1 Cuantos balones de oro tiene Messi?</p>
         
-        <input type="number" id="preguntaNumeroUno">
-        
-        
-        <p>Pregunta 2 Cuantas botas de oro tiene Messi?</p>
-        
-        <input type="number" id="preguntaNumeroDos">
+    <input type="number" id="preguntaNumeroUno">
         
         
-        <p>Pregunta 3 Cuantas champions league tiene Messi?</p>
+    <p>Pregunta 2 Cuantas botas de oro tiene Messi?</p>
         
-        <input type="number" id="preguntaNumeroTres">
+    <input type="number" id="preguntaNumeroDos">
         
         
-        <p>Pregunta 4 Cuantos titulos con su seleccion oficiales tiene Messi?</p>
+    <p>Pregunta 3 Cuantas champions league tiene Messi?</p>
         
-        <input type="number" id="preguntaNumeroCuatro">
+    <input type="number" id="preguntaNumeroTres">
+        
+        
+    <p>Pregunta 4 Cuantos titulos con su seleccion oficiales tiene Messi?</p>
+        
+    <input type="number" id="preguntaNumeroCuatro">
         
        
         
-        <p>Pregunta 5 Cuantas ligas españolas tiene Messi?</p>
+    <p>Pregunta 5 Cuantas ligas españolas tiene Messi?</p>
         
-        <input type="number" id="preguntaNumeroCinco">
+    <input type="number" id="preguntaNumeroCinco">
         
-        <br><br>
+     <br><br>
 
-        <button onclick="finalizado()">Comprobar</button>
+    <button onclick="finalizado()">Comprobar</button>
 
-        <br><br>
+    <br><br>
 
         
-        <button onclick="Reintentar()">Volver a intentar</button>
-        
-        <h2 align="center">Cuenta Regresiva</h2> 
+    <button onclick="Reintentar()">Volver a intentar</button>
+    
+    <h2 align="center">Cuenta Regresiva</h2> 
 
-        <h1 id="tiempoContando" align="center">30</h2>
+    <h1 id="tiempoContando" align="center"></h1>
     <audio id="audioAlarma">
         <source src="audios/off.mp3" type="audios/mp3">
         audio no disponible
@@ -49,30 +49,29 @@
     
     <script>
         
-        let elementoCuentaRegresiva = document.getElementById("tiempoContando");
+        let tiempoTerminado;
         
-        let gameOver = document.getElementById("tituloDelJuego"); 
-        
+        let intervaloDeTiempo;
         let elementoAudio = document.getElementById("audioAlarma");
         function comenzarTiempo(){
-            setTimeout(tiempoAcabado,1000*5);
-
-        }
-        function tiempoAcabado(){
-            alert(gameOver.value);
-            elementoAudio.play();
-
-        }
-        function cuentaRegresiva(){
-            setInterval(tictac,1000);
+            tiempoTerminado =  setTimeout(tiempoAcabado,1000*5);
+            intervaloDeTiempo = setInterval(tictac,1000);
+            document.getElementById("tiempoContando").textContent = 30;
+           
 
         }
         function tictac(){
-            let contador = elementoCuentaRegresiva - 1;
-
+            let tiempo = document.getElementById("tiempoContando").textContent;
+            document.getElementById("tiempoContando").textContent= tiempo - 1;
+        }
+        function tiempoAcabado(){
+            clearInterval(intervaloDeTiempo);
+            document.getElementById("tiempoContando").textContent= 0;
+            document.getElementById("audioAlarma").play();
+            alert("Game over");
 
         }
-       
+        
 
     </script>
 
