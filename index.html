@@ -7,28 +7,28 @@
     <h1 align="center">Juego de Preguntas de Messi</H1><br>
     <p>Pregunta 1 Cuantos balones de oro tiene Messi?</p>
         
-    <input type="number" id="preguntaNumeroUno">
+    <input type="text" id="preguntaNumeroUno">
         
         
     <p>Pregunta 2 Cuantas botas de oro tiene Messi?</p>
         
-    <input type="number" id="preguntaNumeroDos">
+    <input type="text" id="preguntaNumeroDos">
         
         
     <p>Pregunta 3 Cuantas champions league tiene Messi?</p>
         
-    <input type="number" id="preguntaNumeroTres">
+    <input type="text" id="preguntaNumeroTres">
         
         
     <p>Pregunta 4 Cuantos titulos con su seleccion oficiales tiene Messi?</p>
         
-    <input type="number" id="preguntaNumeroCuatro">
+    <input type="text" id="preguntaNumeroCuatro">
         
        
         
     <p>Pregunta 5 Cuantas ligas españolas tiene Messi?</p>
         
-    <input type="number" id="preguntaNumeroCinco">
+    <input type="text" id="preguntaNumeroCinco">
         
      <br><br>
 
@@ -76,21 +76,28 @@
 
             let fecha = new Date();
 
-            let respuesta1= document.getElementById(preguntaNumeroUno);
+            let respuesta1= document.getElementById("preguntaNumeroUno");
 
-            let respuesta2= document.getElementById(preguntaNumeroDos);
+            let respuesta2= document.getElementById("preguntaNumeroDos");
             
-            let respuesta3= document.getElementById(preguntaNumeroTres);
+            let respuesta3= document.getElementById("preguntaNumeroTres");
             
-            let respuesta4= document.getElementById(preguntaNumeroCuatro);
+            let respuesta4= document.getElementById("preguntaNumeroCuatro");
             
-            let respuesta5= document.getElementById(preguntaNumeroCinco);
+            let respuesta5= document.getElementById("preguntaNumeroCinco");
 
-            let mensaje = fecha.toLocaleDateString("es-Es") + "\n";
+            let mensaje = fecha.toLocaleDateString("es-Es") + "\n" + "sus respuestas son:\n " + respuesta1.value + "\n" + respuesta2.value + "\n"+ respuesta3.value + "\n"+ respuesta4.value+ "\n" + respuesta5.value;
+            alert(mensaje);
+
+            clearTimeout(tiempoTerminado);                             
+            clearInterval(intervaloDeTiempo);
 
             
 
 
+        }
+        function Reintentar(){
+            location.reload();
         }
         
 
