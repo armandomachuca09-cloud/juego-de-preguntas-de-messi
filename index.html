@@ -43,7 +43,7 @@
 
     <h1 id="tiempoContando" align="center"></h1>
     <audio id="audioAlarma">
-        <source src="audios/off.mp3" type="audios/mp3">
+        <source src="audios/off.mp3" type="audio/mpeg">
         audio no disponible
     </audio>
     
@@ -54,7 +54,7 @@
         let intervaloDeTiempo;
         let elementoAudio = document.getElementById("audioAlarma");
         function comenzarTiempo(){
-            tiempoTerminado =  setTimeout(tiempoAcabado,1000*5);
+            tiempoTerminado =  setTimeout(tiempoAcabado,1000*30);
             intervaloDeTiempo = setInterval(tictac,1000);
             document.getElementById("tiempoContando").textContent = 30;
            
@@ -67,8 +67,29 @@
         function tiempoAcabado(){
             clearInterval(intervaloDeTiempo);
             document.getElementById("tiempoContando").textContent= 0;
-            document.getElementById("audioAlarma").play();
+            elementoAudio.play();
             alert("Game over");
+
+        }
+
+        function finalizado(){
+
+            let fecha = new Date();
+
+            let respuesta1= document.getElementById(preguntaNumeroUno);
+
+            let respuesta2= document.getElementById(preguntaNumeroDos);
+            
+            let respuesta3= document.getElementById(preguntaNumeroTres);
+            
+            let respuesta4= document.getElementById(preguntaNumeroCuatro);
+            
+            let respuesta5= document.getElementById(preguntaNumeroCinco);
+
+            let mensaje = fecha.toLocaleDateString("es-Es") + "\n";
+
+            
+
 
         }
         
